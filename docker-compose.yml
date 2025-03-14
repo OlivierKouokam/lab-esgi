@@ -1,1 +1,32 @@
+services:
+  db:
+    image: baaptistee/paymybuddy-db:latest
+    container_name: paymybuddy-db
+    env_file:
+      - .env/db.env
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - paymybuddy-net
 
+  backend:
+    image: baaptistee/paymybuddy-backend:latest
+    container_name: paymybuddy-backend
+    env_file:
+      - .env/paymybuddy.env
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - paymybuddy-net
+
+networks:
+  paymybuddy-net:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
