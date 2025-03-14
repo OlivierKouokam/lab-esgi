@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: paymybuddy-config
+data:
+  DB_HOST: "paymybuddy-db"
+  DB_PORT: "3306"
+  DB_NAME: "db_paymybuddy"
+  SPRING_DATASOURCE_URL: "jdbc:mysql://paymybuddy-db:3306/db_paymybuddy?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+  SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
+  SPRING_JPA_SHOW_SQL: "true"
+  SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: "true"
+  SERVER_PORT: "8080"
