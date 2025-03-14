@@ -23,7 +23,7 @@
    docker compose down
    ```
 
-## Déploiement avvec Kubernetes
+## Déploiement avec Kubernetes
 
 1. **Créer les ressources Kubernetes** :
    ```bash
